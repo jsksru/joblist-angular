@@ -1,0 +1,27 @@
+@mixin resetControls {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  background: none;
+  outline: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+  text-transform: none;
+  color: inherit;
+}
+
+@mixin resetMP {
+  margin: 0;
+  padding: 0;
+}
+
+@mixin hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+}
