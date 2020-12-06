@@ -1,0 +1,46 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.wrapper {
+  position: relative;
+}
+
+.label {
+  cursor: text;
+  position: absolute;
+  left: 1px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(0, 0, 0, 0.4);
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.75px;
+  transition: all 0.1s;
+  &--active {
+    left: 0px;
+    top: -1px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.41px;
+    transition: all 0.1s;
+  }
+}
+
+.input {
+  @include resetControls();
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.75px;
+  padding: 7px 0px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  width: 100%;
+  caret-color: $colorSecondary;
+  color: $colorBlack;
+
+  &:focus {
+    border-bottom: 1px solid $colorSecondary;
+  }
+}

@@ -1,0 +1,59 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.card {
+  padding: 2.5rem 0 1.81rem 0;
+  border-bottom: 1px solid #A5A5A5;
+
+  .card-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 29px;
+
+    .title {
+      @include resetMP();
+      margin-right: 1.43rem;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-weight: 500;
+      font-size: 1.25rem;
+      line-height: 1.46rem;
+    }
+
+    .more {
+      color: $colorPrimary;
+      svg {
+        fill: $colorPrimary;
+      }
+      &:hover {
+        color: lighten($colorPrimary, 20%);
+        svg {
+          fill: lighten($colorPrimary, 20%);
+        }
+      }
+    }
+  }
+
+  .params-list {
+    @include resetMP();
+    display: flex;
+
+    .item {
+      width: 33%;
+      display: flex;
+      font-family: 'Roboto', Arial, Helvetica, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 24px;
+
+      .item-title {
+        margin-right: 104px;
+        color: $colorBlack;
+      }
+      .item-value {
+        color: $colorPrimary;
+      }
+    }
+  }
+}

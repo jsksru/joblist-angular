@@ -1,0 +1,32 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.paginator {
+  display: flex;
+  align-items: center;
+
+  .page-number {
+    margin: 0 26px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 32px;
+    color: #000;
+  }
+
+  .button {
+    cursor: pointer;
+    @include resetControls();
+    color: $colorPrimary;
+    svg {
+      fill: $colorPrimary;
+    }
+
+    &:disabled {
+      color: #3C474C;
+      svg {
+        fill: #3C474C;
+      }
+    }
+  }
+}
