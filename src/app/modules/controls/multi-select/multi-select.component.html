@@ -1,16 +1,12 @@
 <div class="wrapper">
-  <input class="input" type="text" id="inputmulti" (input)="onInput($event)">
-  <label for="inputmulti" [ngClass]="{'label': true, 'label--active': !isEmpty}">Название</label>
-  <div class="drop-down">
+  <label>
+    <span [ngClass]="{'label': true, 'label--active': !isEmpty}">Название</span>
+    <input class="input" type="text" (click)="toggleHandler()">
+  </label>
+  <div class="drop-down" *ngIf="isOpen">
     <ul class="checkbox-list">
-      <div class="item">
-        <controls-checkbox></controls-checkbox>
-      </div>
-      <div class="item">
-        <controls-checkbox></controls-checkbox>
-      </div>
-      <div class="item">
-        <controls-checkbox></controls-checkbox>
+      <div class="item" *ngFor="let item of items">
+        <controls-checkbox (changeEmitter)="filterItems(item.value, $event)">{{ item.text }}</controls-checkbox>
       </div>
     </ul>
   </div>
