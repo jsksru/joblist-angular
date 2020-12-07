@@ -1,17 +1,11 @@
 <div>
-  <div class="title">Тип</div>
+  <div class="title">{{ title }}</div>
   <ul class="radio-list">
     <li class="item">
-      <controls-radio></controls-radio>
+      <controls-radio [name]="name" (changeEmitter)="handler(null)" [checked]="value === null">{{ all }}</controls-radio>
     </li>
-    <li class="item">
-      <controls-radio></controls-radio>
-    </li>
-    <li class="item">
-      <controls-radio></controls-radio>
-    </li>
-    <li class="item">
-      <controls-radio></controls-radio>
+    <li class="item" *ngFor="let item of items">
+      <controls-radio [name]="name" (changeEmitter)="handler(item.value)" [checked]="value === item.value">{{ item.text }}</controls-radio>
     </li>
   </ul>
 </div>
