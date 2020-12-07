@@ -5,10 +5,10 @@
       <controls-input></controls-input>
     </div>
     <div class="item">
-      <controls-multi-select></controls-multi-select>
+      <controls-multi-select [items]="filter"></controls-multi-select>
     </div>
     <div class="item">
-      <controls-radio-list></controls-radio-list>
+      <controls-radio-list title="Radio btn" [items]="radios" name="rad" [value]="null" all="Все записи"></controls-radio-list>
     </div>
   </fieldset>
 </div>
