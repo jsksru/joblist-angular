@@ -44,9 +44,11 @@
   &:focus {
     border-bottom: 1px solid $colorSecondary;
   }
+
 }
 
 .drop-down {
+  display: block;
   position: absolute;
   z-index: 100;
   top: 100%;
