@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { MultiSelectItems } from '../../../types/controls/multi-select.types';
 import { RadioListItems } from '../../../types/controls/radio-list.types';
+import { FilterService } from './filter.service';
+
 
 @Component({
   selector: 'widget-filter',
@@ -8,6 +10,27 @@ import { RadioListItems } from '../../../types/controls/radio-list.types';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
+  constructor(private filterService: FilterService) {}
+
+  getSearch() {
+    return this.filterService.getSearch();
+  }
+  setSearch(value) {
+    this.filterService.setSearch(value);
+  }
+  getRadio() {
+    return this.filterService.getRadio();
+  }
+  setRadio(value) {
+    this.filterService.setRadio(value);
+  }
+  getMulti() {
+    return this.filterService.getMulti();
+  }
+  setMulti(value) {
+    this.filterService.setMulti(value);
+  }
+
   filter: MultiSelectItems = [
     {
       value: '#000',
