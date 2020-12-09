@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RadioListItems } from '../../../types/controls/radio-list.types';
 
 @Component({
@@ -12,9 +12,10 @@ export class RadioListComponent {
   @Input() name: string;
   @Input() items: RadioListItems;
   @Input() value: string | null;
+  @Output() changeEmitter: EventEmitter<string | null> = new EventEmitter();
 
   handler(value) {
-    console.log(value);
+    this.changeEmitter.emit(value);
   }
 
 }
