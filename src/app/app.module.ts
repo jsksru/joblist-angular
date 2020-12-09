@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { WidgetsModule } from './modules/widgets/widgets.module';
 
 
 
@@ -14,7 +12,6 @@ import { WidgetsModule } from './modules/widgets/widgets.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    WidgetsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
