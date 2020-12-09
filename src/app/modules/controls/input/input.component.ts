@@ -1,18 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'controls-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })
-export class InputComponent {
+export class InputComponent{
+  @Input() title: string;
+  @Input() value: string;
+  @Output() inputEmitter: EventEmitter<string> = new EventEmitter();
 
-  inputValue: string = '';
-  isEmpty = true;
+  get isEmpty() {
+    return this.value.length === 0;
+  }
 
   onInput(e) {
-    this.inputValue = e.target.value;
-    this.isEmpty = e.target.value.length > 0 ? false : true;
+    this.inputEmitter.emit(e.target.value);
   }
 
 }

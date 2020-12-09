@@ -1,7 +1,7 @@
 <div class="wrapper">
   <label>
-    <span [ngClass]="{'label': true, 'label--active': !isEmpty}">Название</span>
-    <input class="input" type="text" (input)="onInput($event)">
+    <span [ngClass]="{'label': true, 'label--active': !isEmpty}">{{ title }}</span>
+    <input class="input" type="text" (input)="onInput($event)" [value]="value">
   </label>
 </div>
 
