@@ -1,7 +1,11 @@
 <div>
-  <div class="list">
-    <widget-card *ngFor="let item of [1,2,3,4,5]"></widget-card>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">Error</div>
+  <div>
+    <div class="list">
+      <widget-card *ngFor="let ship of ships" [id]="ship.id" [name]="ship.name" [type]="ship.type" [home_port]="ship.home_port"></widget-card>
+    </div>
+    <controls-paginator></controls-paginator>
   </div>
-  <controls-paginator></controls-paginator>
 </div>
 

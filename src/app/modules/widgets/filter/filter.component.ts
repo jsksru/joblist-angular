@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MultiSelectItems } from '../../../types/controls/multi-select.types';
 import { RadioListItems } from '../../../types/controls/radio-list.types';
-import { FilterService } from './filter.service';
+import { FilterType } from './types';
 
 
 @Component({
@@ -10,25 +10,14 @@ import { FilterService } from './filter.service';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-  constructor(private filterService: FilterService) {}
+  @Input() filters: FilterType;
+  @Output() changeEvent: EventEmitter<FilterType> = new EventEmitter();
 
-  getSearch() {
-    return this.filterService.getSearch();
-  }
-  setSearch(value) {
-    this.filterService.setSearch(value);
-  }
-  getRadio() {
-    return this.filterService.getRadio();
-  }
-  setRadio(value) {
-    this.filterService.setRadio(value);
-  }
-  getMulti() {
-    return this.filterService.getMulti();
-  }
-  setMulti(value) {
-    this.filterService.setMulti(value);
+  changeFilter(filterName: string, value: any) {
+    this.changeEvent.emit({
+      ...this.filters,
+      [filterName]: value
+    });
   }
 
   filter: MultiSelectItems = [
@@ -47,16 +36,12 @@ export class FilterComponent {
   ];
   radios: RadioListItems = [
     {
-      value: '#000',
-      text: 'Black'
+      value: 'Cargo',
+      text: 'Cargo'
     },
     {
-      value: 'rgb(255,0,0)',
-      text: 'Red'
-    },
-    {
-      value: 'fam',
-      text: 'Family'
+      value: 'Tug',
+      text: 'Tug'
     }
   ];
 }

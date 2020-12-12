@@ -4,16 +4,16 @@
     <div class="item">
       <controls-input
         title="Поиск"
-        [value]="getSearch()"
-        (inputEmitter)="setSearch($event)"
+        [value]="filters.search"
+        (inputEmitter)="changeFilter('search', $event)"
       ></controls-input>
     </div>
     <div class="item">
       <controls-multi-select
         title="Список"
         [items]="filter"
-        [values]="getMulti()"
-        (selectEmitter)="setMulti($event)"
+        [values]="filters.multi"
+        (selectEmitter)="changeFilter('multi', $event)"
       ></controls-multi-select>
     </div>
     <div class="item">
@@ -21,9 +21,9 @@
         title="Radio btn"
         [items]="radios"
         name="rad"
-        [value]="getRadio()"
+        [value]="filters.radio"
         all="Все записи"
-        (changeEmitter)="setRadio($event)"
+        (changeEmitter)="changeFilter('radio', $event)"
       ></controls-radio-list>
     </div>
   </fieldset>

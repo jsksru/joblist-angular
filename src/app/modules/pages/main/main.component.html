@@ -1,9 +1,9 @@
 <div class="page">
   <main class="jobs">
     <h1 class="title">Jobs List</h1>
-    <widget-cards-list></widget-cards-list>
+    <widget-cards-list [filters]="filters"></widget-cards-list>
   </main>
   <aside class="sidebar">
-    <widget-filter></widget-filter>
+    <widget-filter [filters]="filters" (changeEvent)="setFilters($event)"></widget-filter>
   </aside>
 </div>

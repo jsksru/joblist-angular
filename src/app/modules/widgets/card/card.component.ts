@@ -1,15 +1,16 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'widget-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
+  @Input() id: string;
+  @Input() name: string;
+  @Input() type: string;
+  @Input() home_port: string;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
 
 }

@@ -1,7 +1,7 @@
 <article class="card">
   <div class="card-header">
-    <h1 class="title">Title</h1>
-    <a class="more" [routerLink]="['info/12']">
+    <h1 class="title">{{ name }}</h1>
+    <a class="more" [routerLink]="'info/' + id">
       <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M0 9L12.17 9L6.58 14.59L8 16L16 8L8 0L6.59 1.41L12.17 7L0 7L0 9Z" />
       </svg>
@@ -10,12 +10,12 @@
   <div>
     <ul class="params-list">
       <li class="item">
-        <span class="item-title">term 1</span>
-        <span class="item-value">definition 1</span>
+        <span class="item-title">Тип</span>
+        <span class="item-value">{{ type }}</span>
       </li>
       <li class="item">
-        <span class="item-title">term 2</span>
-        <span class="item-value">definition 2</span>
+        <span class="item-title">Порт</span>
+        <span class="item-value">{{ home_port }}</span>
       </li>
     </ul>
   </div>
