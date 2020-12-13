@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import { FilterType } from '../../widgets/filter/types';
+import { FilterType } from '../../../types/filter';
 import { Apollo, gql } from 'apollo-angular';
 import { pluck, map } from 'rxjs/operators';
-import { ShipResult } from './main.types';
+import { ShipResult } from '../../../types/ship.types';
 
 const QUERY = gql`
 {

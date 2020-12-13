@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Ship } from '../../pages/main/main.types';
+import { Ship } from '../../../types/ship.types';
 
 @Component({
   selector: 'widget-cards-list',

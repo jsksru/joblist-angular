@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MultiSelectItems } from '../../../types/controls/multi-select.types';
 import { RadioListItems } from '../../../types/controls/radio-list.types';
-import { FilterType } from './types';
+import { FilterType } from '../../../types/filter';
 
 
 @Component({

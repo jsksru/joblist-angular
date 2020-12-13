@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 // tslint:disable-next-line:import-spacing
 import { MainService } from  './main.service';
-import { FilterType } from '../../widgets/filter/types';
-import { Ship } from './main.types';
+import { FilterType } from '../../../types/filter';
+import { Ship } from '../../../types/ship.types';
 import _ from 'lodash';
 
 
