@@ -10,7 +10,7 @@
     </div>
     <div class="item">
       <controls-multi-select
-        title="Список"
+        title="Порт"
         [items]="filter"
         [values]="filters.multi"
         (selectEmitter)="changeFilter('multi', $event)"
@@ -18,7 +18,7 @@
     </div>
     <div class="item">
       <controls-radio-list
-        title="Radio btn"
+        title="Тип"
         [items]="radios"
         name="rad"
         [value]="filters.radio"

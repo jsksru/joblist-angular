@@ -22,16 +22,16 @@ export class FilterComponent {
 
   filter: MultiSelectItems = [
     {
-      value: '#000',
-      text: 'Black'
+      value: 'Port of Los Angeles',
+      text: 'Port of Los Angeles'
     },
     {
-      value: 'rgb(255,0,0)',
-      text: 'Red'
+      value: 'Port Canaveral',
+      text: 'Port Canaveral'
     },
     {
-      value: 'fam',
-      text: 'Family'
+      value: 'Fort Lauderdale',
+      text: 'Fort Lauderdale'
     }
   ];
   radios: RadioListItems = [
@@ -42,6 +42,14 @@ export class FilterComponent {
     {
       value: 'Tug',
       text: 'Tug'
+    },
+    {
+      value: 'Barge',
+      text: 'Barge'
+    },
+    {
+      value: 'High Speed Craft',
+      text: 'High Speed Craft'
     }
   ];
 }
