@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+// tslint:disable-next-line:import-spacing
 import { MainService } from  './main.service';
 import { FilterType } from '../../widgets/filter/types';
 import { Ship } from './main.types';
@@ -40,7 +41,17 @@ export class MainComponent implements OnInit{
   }
 
   getItems(pageNum: number): Ship[] {
-    return _.chunk(this.ships, this.limit)[pageNum - 1];
+    let filteredShips: Ship[] = [...this.ships];
+    if (this.filters.search) {
+      filteredShips = filteredShips.filter((i: Ship) => i.name.toLowerCase().indexOf(this.filters.search) !== -1);
+    }
+    if (this.filters.radio) {
+      filteredShips = filteredShips.filter((i: Ship) => i.type === this.filters.radio);
+    }
+    if (this.filters.multi.length > 0) {
+      filteredShips = filteredShips.filter((i: Ship) => this.filters.multi.includes(i.port));
+    }
+    return _.chunk(filteredShips, this.limit)[pageNum - 1];
   }
 
 }
