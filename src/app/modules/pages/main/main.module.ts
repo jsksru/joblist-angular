@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './main.component';
 import { WidgetsModule } from '../../widgets/widgets.module';
+import { ControlsModule } from '../../controls/controls.module';
 
 const routes: Routes = [
   {
@@ -18,6 +19,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     WidgetsModule,
+    ControlsModule,
     RouterModule.forChild(routes),
   ],
   exports: [
