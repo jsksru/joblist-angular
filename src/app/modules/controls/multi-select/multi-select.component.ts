@@ -4,7 +4,7 @@ import { MultiSelectItems } from '../../../types/controls/multi-select.types';
 
 
 @Component({
-  selector: 'controls-multi-select',
+  selector: 'app-controls-multi-select',
   templateUrl: './multi-select.component.html',
   styleUrls: ['./multi-select.component.scss']
 })

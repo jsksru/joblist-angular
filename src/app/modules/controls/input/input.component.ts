@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'controls-input',
+  selector: 'app-controls-input',
   templateUrl: './input.component.html',
   styleUrls: ['./input.component.scss']
 })

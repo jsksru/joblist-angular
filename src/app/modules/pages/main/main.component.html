@@ -3,11 +3,11 @@
     <h1 class="title">Jobs List</h1>
     <div *ngIf="loading">Loading...</div>
     <div *ngIf="!loading && ships">
-      <widget-cards-list [items]="getItems(currentPage)"></widget-cards-list>
+      <app-widget-cards-list [items]="getItems(currentPage)"></app-widget-cards-list>
       <app-controls-paginator [current]="currentPage" [max]="totalPages" (changePage)="changePage($event)"></app-controls-paginator>
     </div>
   </main>
   <aside class="sidebar">
-    <widget-filter [filters]="filters" (changeEvent)="setFilters($event)"></widget-filter>
+    <app-widget-filter [filters]="filters" (changeEvent)="setFilters($event)"></app-widget-filter>
   </aside>
 </div>

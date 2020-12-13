@@ -2,7 +2,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { RadioListItems } from '../../../types/controls/radio-list.types';
 
 @Component({
-  selector: 'controls-radio-list',
+  selector: 'app-controls-radio-list',
   templateUrl: './radio-list.component.html',
   styleUrls: ['./radio-list.component.scss']
 })

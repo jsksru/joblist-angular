@@ -5,7 +5,7 @@ import { FilterType } from '../../../types/filter';
 
 
 @Component({
-  selector: 'widget-filter',
+  selector: 'app-widget-filter',
   templateUrl: './filter.component.html',
   styleUrls: ['./filter.component.scss']
 })

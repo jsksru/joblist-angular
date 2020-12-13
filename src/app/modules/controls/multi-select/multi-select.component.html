@@ -6,10 +6,10 @@
   <div class="drop-down" *ngIf="isOpen">
     <ul class="checkbox-list">
       <div class="item" *ngFor="let item of items">
-        <controls-checkbox
+        <app-controls-checkbox
           [checked]="isChecked(item.value)"
           (changeEmitter)="filterItems(item.value, $event)"
-        >{{ item.text }}</controls-checkbox>
+        >{{ item.text }}</app-controls-checkbox>
       </div>
     </ul>
   </div>

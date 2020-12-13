@@ -1,7 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
-  selector: 'controls-radio',
+  selector: 'app-controls-radio',
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.scss']
 })

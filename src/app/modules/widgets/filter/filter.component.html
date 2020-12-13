@@ -2,29 +2,29 @@
   <h1 class="title">Фильтры</h1>
   <fieldset class="fields">
     <div class="item">
-      <controls-input
+      <app-controls-input
         title="Поиск"
         [value]="filters.search"
         (inputEmitter)="changeFilter('search', $event)"
-      ></controls-input>
+      ></app-controls-input>
     </div>
     <div class="item">
-      <controls-multi-select
+      <app-controls-multi-select
         title="Порт"
         [items]="filter"
         [values]="filters.multi"
         (selectEmitter)="changeFilter('multi', $event)"
-      ></controls-multi-select>
+      ></app-controls-multi-select>
     </div>
     <div class="item">
-      <controls-radio-list
+      <app-controls-radio-list
         title="Тип"
         [items]="radios"
         name="rad"
         [value]="filters.radio"
         all="Все записи"
         (changeEmitter)="changeFilter('radio', $event)"
-      ></controls-radio-list>
+      ></app-controls-radio-list>
     </div>
   </fieldset>
 </div>

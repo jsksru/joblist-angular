@@ -2,10 +2,10 @@
   <div class="title">{{ title }}</div>
   <ul class="radio-list">
     <li class="item">
-      <controls-radio [name]="name" (changeEmitter)="handler(null)" [checked]="value === null">{{ all }}</controls-radio>
+      <app-controls-radio [name]="name" (changeEmitter)="handler(null)" [checked]="value === null">{{ all }}</app-controls-radio>
     </li>
     <li class="item" *ngFor="let item of items">
-      <controls-radio [name]="name" (changeEmitter)="handler(item.value)" [checked]="value === item.value">{{ item.text }}</controls-radio>
+      <app-controls-radio [name]="name" (changeEmitter)="handler(item.value)" [checked]="value === item.value">{{ item.text }}</app-controls-radio>
     </li>
   </ul>
 </div>
