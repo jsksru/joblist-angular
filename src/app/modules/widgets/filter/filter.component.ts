@@ -13,13 +13,6 @@ export class FilterComponent {
   @Input() filters: FilterType;
   @Output() changeEvent: EventEmitter<FilterType> = new EventEmitter();
 
-  changeFilter(filterName: string, value: any) {
-    this.changeEvent.emit({
-      ...this.filters,
-      [filterName]: value
-    });
-  }
-
   filter: MultiSelectItems = [
     {
       value: 'Port of Los Angeles',
@@ -52,4 +45,11 @@ export class FilterComponent {
       text: 'High Speed Craft'
     }
   ];
+
+  changeFilter(filterName: string, value: any) {
+    this.changeEvent.emit({
+      ...this.filters,
+      [filterName]: value
+    });
+  }
 }
