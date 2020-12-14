@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-// tslint:disable-next-line:import-spacing
 import { MainService } from  './main.service';
 import { FilterType } from '../../../types/filter';
 import { Ship } from '../../../types/ship.types';
-import _ from 'lodash';
+import { Apollo, gql } from 'apollo-angular';
 
 
 @Component({
@@ -11,19 +10,56 @@ import _ from 'lodash';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss']
 })
-export class MainComponent implements OnInit{
+export class MainComponent implements OnInit {
   ships: Ship[];
   limit = 5;
   currentPage = 1;
   totalPages = 0;
   loading = true;
 
-  constructor(private mainService: MainService) {}
+  constructor(private mainService: MainService, private apollo: Apollo) {}
 
-  ngOnInit() {
-    this.mainService.loadShips().then((result: Ship[]) => {
-      this.ships = result;
-      this.totalPages = Math.ceil(this.ships.length / this.limit);
+  queryBuilder() {
+    const searchText = this.filters.search || '';
+    const shipType = this.filters.radio || '';
+    const homePorts = this.filters.multi.length > 0 ? this.filters.multi.join('|') : '';
+    const queryFilter = `
+      find: {
+        name: "${searchText}",
+        type: "${shipType}",
+        home_port: "${homePorts}"
+      },
+      limit: ${this.limit},
+      offset: ${this.limit * (this.currentPage - 1)}
+    `;
+    return queryFilter;
+  }
+
+  fetchShips() {
+    this.loading = true;
+    this.apollo.query<any>({
+      query: gql`
+      {
+        shipsResult(${this.queryBuilder()}) {
+          result {
+            totalCount
+          }
+          data {
+            id
+            name
+            type
+            home_port
+          }
+        }
+      }`
+    }).toPromise().then(({ data }) => {
+      this.totalPages = Math.ceil(data.shipsResult.result.totalCount / this.limit);
+      this.ships = data.shipsResult.data.map(i => ({
+        id: i.id,
+        name: i.name,
+        type: i.type,
+        port: i.home_port,
+      }));
       this.loading = false;
     });
   }
@@ -32,26 +68,18 @@ export class MainComponent implements OnInit{
     return this.mainService.getFilters();
   }
 
+  ngOnInit() {
+    this.fetchShips();
+  }
+
   setFilters(filters: FilterType) {
     this.mainService.setFilters(filters);
+    this.fetchShips();
   }
 
   changePage(pageNum: number) {
     this.currentPage = pageNum;
-  }
-
-  getItems(pageNum: number): Ship[] {
-    let filteredShips: Ship[] = [...this.ships];
-    if (this.filters.search) {
-      filteredShips = filteredShips.filter((i: Ship) => i.name.toLowerCase().indexOf(this.filters.search) !== -1);
-    }
-    if (this.filters.radio) {
-      filteredShips = filteredShips.filter((i: Ship) => i.type === this.filters.radio);
-    }
-    if (this.filters.multi.length > 0) {
-      filteredShips = filteredShips.filter((i: Ship) => this.filters.multi.includes(i.port));
-    }
-    return _.chunk(filteredShips, this.limit)[pageNum - 1];
+    this.fetchShips();
   }
 
 }

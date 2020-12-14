@@ -3,7 +3,7 @@
     <h1 class="title">Jobs List</h1>
     <div *ngIf="loading">Loading...</div>
     <div *ngIf="!loading && ships">
-      <app-widget-cards-list [items]="getItems(currentPage)"></app-widget-cards-list>
+      <app-widget-cards-list [items]="ships"></app-widget-cards-list>
       <app-controls-paginator [current]="currentPage" [max]="totalPages" (changePage)="changePage($event)"></app-controls-paginator>
     </div>
   </main>
