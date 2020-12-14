@@ -23,6 +23,7 @@
     }
 
     &:disabled {
+      cursor: default;
       color: #3C474C;
       svg {
         fill: #3C474C;
