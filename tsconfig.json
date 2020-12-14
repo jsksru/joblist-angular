@@ -7,10 +7,10 @@
     "declaration": false,
     "downlevelIteration": true,
     "experimentalDecorators": true,
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "importHelpers": true,
-    "target": "es5",
+    "target": "ES5",
     "lib": [
       "es2018",
       "dom",
@@ -21,6 +21,5 @@
   "angularCompilerOptions": {
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableIvy": false,
   }
 }
