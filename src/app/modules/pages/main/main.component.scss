@@ -2,25 +2,26 @@
 @import "../../../styles/mixins.scss";
 
 .page {
-  display: grid;
+  display: flex;
   min-height: 100vh;
-  grid-template-columns: 4fr 1fr;
 
-  .jobs {
-    padding: 3.25rem 3.94rem;
+  .ships {
+    flex-grow: 1;
+    padding: 52px 63px;
 
     .title {
       @include resetMP();
       font-family: 'Roboto', Arial, Helvetica, sans-serif;
       font-weight: 500;
-      font-size: 1.75rem;
-      line-height: 2rem;
+      font-size: 28px;
+      line-height: 32px;
       color: $colorBlack;
     }
   }
 
   .sidebar {
-    padding: 3.25rem 2.06rem;
+    width: 393px;
+    padding: 52px 33px;
     border-left: 1px solid #A5A5A5;
   }
 }
