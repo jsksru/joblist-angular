@@ -1,25 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
 import { pluck, map } from 'rxjs/operators';
 import { Subscription } from 'rxjs';
-
-interface ShipResult {
-  name: string;
-  type: string;
-  home_port: string;
-  weight_kg: number;
-  year_built: number;
-  missions: Array<{name: string}>;
-}
-interface ShipMapped {
-  name: string;
-  type: string;
-  home_port: string;
-  weight_kg: number;
-  year_built: number;
-  missions: string[];
-}
 
 const GET_SHIP_BY_ID = gql`
 query GetShipById ($shipID: ID!) {
@@ -49,7 +32,7 @@ export class InfoComponent implements OnInit, OnDestroy {
   paramsSubscription: Subscription;
   querySubscription: Subscription;
 
-  constructor(private route: ActivatedRoute, private apollo: Apollo) { }
+  constructor(private route: ActivatedRoute, private apollo: Apollo, private router: Router) { }
 
   ngOnInit(): void {
     this.paramsSubscription = this.route.params.subscribe(params => {
@@ -62,15 +45,16 @@ export class InfoComponent implements OnInit, OnDestroy {
           }
         }).valueChanges.pipe(
           pluck('data', 'ship'),
-          map((ship: ShipResult) => {
-            return {
-              ...ship,
-              missions: ship.missions.map(i => i.name)
+        ).subscribe(result => {
+          if (result && result.name && result.name.length > 0) {
+            this.info = {
+              ...result,
+              missions: result.missions.map(i => i.name),
             };
-          })
-        ).subscribe((result: ShipMapped) => {
-          this.info = result;
-          this.loading = false;
+            this.loading = false;
+          } else {
+            this.router.navigate(['../404'], { relativeTo: this.route.parent });
+          }
         });
       }
     });

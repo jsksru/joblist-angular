@@ -11,7 +11,14 @@ const routes: Routes = [
     path: 'info',
     loadChildren: () => import('./modules/pages/info/info.module').then(m => m.InfoModule),
   },
-  // { path: '**', component: PageNotFoundComponent },
+  {
+    path: '404',
+    loadChildren: () => import('./modules/pages/page404/page404.module').then(m => m.Page404Module),
+  },
+  {
+    path: '**',
+    redirectTo: '404',
+  },
 ];
 
 

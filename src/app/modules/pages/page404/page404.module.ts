@@ -1,23 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InfoComponent } from './info.component';
+import { Page404Component } from './page404.component';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '404'
-  },
-  {
-    path: ':id',
-    component: InfoComponent,
+    component: Page404Component,
   }
 ];
 
 
 
 @NgModule({
-  declarations: [InfoComponent],
+  declarations: [Page404Component],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
@@ -26,4 +22,4 @@ const routes: Routes = [
     RouterModule,
   ]
 })
-export class InfoModule { }
+export class Page404Module { }
