@@ -1,10 +1,14 @@
 <div class="page">
   <main class="ships">
     <h1 class="title">SpaceX Ships</h1>
-    <div *ngIf="loading">Loading...</div>
-    <div *ngIf="!loading && ships">
+    <div *ngIf="loading" class="message">Loading...</div>
+    <div *ngIf="!loading && ships.length > 0">
       <app-widget-cards-list [items]="ships"></app-widget-cards-list>
       <app-controls-paginator [current]="currentPage" [max]="totalPages" (changePage)="changePage($event)"></app-controls-paginator>
+    </div>
+    <div *ngIf="ships.length === 0" class="message">
+      <strong>Извините!</strong>
+      <p>Нет данных удовлетворяющих вашему запросу.</p>
     </div>
   </main>
   <aside class="sidebar">
