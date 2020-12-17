@@ -69,6 +69,7 @@ export class MainComponent implements OnInit, OnDestroy {
   setFilters(filters: FilterType) {
     this.mainService.setFilters(filters);
     this.fetchShips();
+    this.currentPage = 1;
   }
 
   changePage(pageNum: number) {
